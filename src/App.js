@@ -3,6 +3,7 @@ import"./styles.css";
 import WeatherApp from "./WeatherApp";
 import './App.css';
 import CurrentWeather from "./CurrentWeather";
+import CurrentFeatures from "./CurrentFeatures";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
      <h1> Hello World! </h1>
      <WeatherApp city="New York"/>
      <CurrentWeather/>
+     <CurrentFeatures/>
     </div>
   );
 }

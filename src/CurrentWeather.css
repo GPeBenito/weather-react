@@ -36,8 +36,8 @@
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -10px;
+    margin-right: -5px;
+    margin-left: -5px;
   }
   .units {
     position: relative;
@@ -46,7 +46,7 @@
   }
   
   ul {
-    margin: 0px 0px 0px;
+    margin: 0px 0px 0px 10px;
     padding: 0px;
     display: block;
     list-style-type: disc;
