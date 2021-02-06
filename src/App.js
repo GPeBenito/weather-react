@@ -1,3 +1,4 @@
+import"./styles.css";
 import WeatherApp from "./WeatherApp";
 import './App.css';
 
