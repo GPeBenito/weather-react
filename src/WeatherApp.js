@@ -31,6 +31,7 @@ export default function WeatherApp(props) {
     setCity(event.target.value);
   }
   let form = (
+      <div className="SearchForm">
     <form class="search-form mb-3" id="search-form" onSubmit={handleSubmit}>
       <div class="row">
           <div class="col-6">
@@ -57,8 +58,9 @@ export default function WeatherApp(props) {
           </button>
       </div>
       </div>
-      
+
     </form>
+    </div> 
   );
   if (loaded) {
     return (
