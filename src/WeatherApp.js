@@ -31,13 +31,33 @@ export default function WeatherApp(props) {
     setCity(event.target.value);
   }
   let form = (
-    <form onSubmit={handleSubmit}>
+    <form class="search-form mb-3" id="search-form" onSubmit={handleSubmit}>
+      <div class="row">
+          <div class="col-6">
+
+     
       <input
         type="search"
         placeholder="Search for a city"
+        autofocus="on"
+        autoComplete="off"
+        id="city-input"
+        class="form-control shadow-sm"
         onChange={updateCity}
       />
-      <input type="submit" value="Search" />
+      </div>
+      <div class="col-3">
+      <input type="submit" value="Search"
+      class="form-control btn btn-primary shadow-sm"
+      id="special-button" />
+      </div>
+      <div class="col-3">
+          <button class="btn btn-success w-100" id="current-location-button">
+              Current
+          </button>
+      </div>
+      </div>
+      
     </form>
   );
   if (loaded) {
