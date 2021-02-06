@@ -8,12 +8,14 @@ import CurrentFeatures from "./CurrentFeatures";
 function App() {
   return (
     <div className="App">
-     <h1> Hello World! </h1>
+     <h1> React Weather App </h1>
      <WeatherApp city="New York"/>
      <CurrentWeather/>
      <CurrentFeatures/>
-    </div>
-  );
+  
+     <p> Open Source Code by <a href="https://github.com/GPeBenito/weather-react"> G. Pe Benito </a> </p>
+     </div>
+     );
 }
 
 export default App;
