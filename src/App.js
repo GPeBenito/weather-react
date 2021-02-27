@@ -13,7 +13,7 @@ function App() {
      <CurrentWeather/>
      <CurrentFeatures/>
   
-     <p> Open Source Code by <a href="https://github.com/GPeBenito/weather-react"> G. Pe Benito </a> </p>
+     <p> Open Source Code by <a href="https://github.com/GPeBenito/weather-react" target="_blank" rel="noreferrer"> G. Pe Benito </a> </p>
      </div>
      );
 }
