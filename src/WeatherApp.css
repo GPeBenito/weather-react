@@ -1,9 +1,10 @@
 .CurrentWeather {
     display: inline;
-    padding: 15px;
+    padding: 5px;
+
   }
   h2 {
-    color: #212529;
+    color:#7c7c77;
     font-size: 24px;
     font-weight: 100;
     line-height: 28px;
@@ -30,9 +31,7 @@
     vertical-align: middle;
     border-style: none;
   }
-  .float-left {
-    float: left !important;
-  }
+ 
   .row {
     display: flex;
     flex-wrap: wrap;
@@ -45,11 +44,34 @@
     left: 80px;
   }
   
+
+  .col-6 {
+    flex: 0 0 50%;
+    max-width: 40%;
+  }
+  .float-right {
+    float: right !important;
+    position: relative;
+    top: 10px;
+    left: -20px;
+    list-style: none;
+    color: #7c7c7c;
+  }
+  
+  
   ul {
-    margin: 0px 0px 0px 10px;
+   
     padding: 0px;
     display: block;
-    list-style-type: disc;
+    list-style: none;
+    
+  }
+  li {
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 19px;
+    list-style: none;
+
   }
   .Header {
     display: list-item;
@@ -59,4 +81,5 @@
     margin: 0;
     padding: 0;
   }
-  
+
+ 
