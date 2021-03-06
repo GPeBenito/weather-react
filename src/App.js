@@ -8,12 +8,14 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-     <h1> React Weather App </h1>
+     <h1> </h1>
      <WeatherApp city="New York"/>
     
     
-  
+  <footer>
      <p> Open Source Code by <a href="https://github.com/GPeBenito/weather-react" target="_blank" rel="noreferrer"> G. Pe Benito </a> </p>
+     
+     </footer>
      </div>
      );
 }

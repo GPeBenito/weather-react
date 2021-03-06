@@ -42,7 +42,7 @@ export default function WeatherApp(props) {
       <input
         type="search"
         placeholder="Search for a city"
-        autofocus="on"
+        autoFocus="on"
         autoComplete="off"
         id="city-input"
         class="form-control shadow-sm"
@@ -65,8 +65,8 @@ export default function WeatherApp(props) {
   );
   if (loaded) {
     return (
-      <div>
-        <div className="Weather">
+      <div className="Weather">
+        <div>
         {form}
               <h2> New York </h2>
               <ul className="Header">
@@ -76,6 +76,7 @@ export default function WeatherApp(props) {
               <div className="row">
   
               <div className="col-6">
+              <div className="clearfix">
     
               <img
                 src="https://i.pinimg.com/564x/77/0b/80/770b805d5c99c7931366c2e84e88f251.jpg"
@@ -100,6 +101,7 @@ export default function WeatherApp(props) {
                   </a>
                 </span>
                 </div>
+              </div>
               </div>
               <div className= "col-6">
               <ul className="float-right">

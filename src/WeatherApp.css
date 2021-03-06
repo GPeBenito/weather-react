@@ -1,14 +1,29 @@
-.CurrentWeather {
-    display: inline;
-    padding: 5px;
+.Weather {
+    font-family: arial, sans-serif;
+    padding: 16px;
+    color: rbg(135, 135, 135);
+    font-family: arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    border: 1px solid #dadde1;
+    padding: 15px;
+    border-radius: 10px;
+   
 
   }
-  h2 {
+  .Weather form {
+      margin-bottom: 20px;
+  }
+  
+  .Weather h2 {
     color:#7c7c77;
     font-size: 24px;
     font-weight: 100;
     line-height: 28px;
-    margin: 0;
+    margin: 20px, 0, 0 ,0;
   }
   .temp {
     color: rgb(33, 33, 33);
@@ -24,10 +39,10 @@
     width: 64px;
     margin-right: 10px;
   }
-  .float-left {
+  Weather .float-left {
     float: left !important;
   }
-  img {
+  .Weather img {
     vertical-align: middle;
     border-style: none;
   }
@@ -59,14 +74,13 @@
   }
   
   
-  ul {
-   
+  .Header ul {
     padding: 0px;
     display: block;
     list-style: none;
     
   }
-  li {
+  .Header li {
     font-size: 16px;
     font-weight: 100;
     line-height: 19px;
@@ -74,7 +88,6 @@
 
   }
   .Header {
-    display: list-item;
     color: #7c7c7c;
     font-size: 16px;
     margin-top: 0px;
