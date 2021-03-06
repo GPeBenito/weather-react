@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherApp.css";
-import FormattedDate from "./FormattedDate";
+
+import WeatherInfo from "./WeatherInfo";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function WeatherApp(props) {
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ loaded: false});
 
   function showWeather(response) {
@@ -21,10 +22,17 @@ export default function WeatherApp(props) {
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png `
     });
   }
+function search(){
+  const apiKey = "0e6a69651885d99335f23f200403f8a4";
+  const unit = "metric";
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(showWeather);
+  console.log(apiUrl);
 
+}
   function handleSubmit(event) {
     event.preventDefault();
-   
+   search();
   }
 
   function updateCity(event) {
@@ -64,68 +72,15 @@ export default function WeatherApp(props) {
   );
   if (weather.loaded) {
     return (
-      <div className="Weather">
-        <div>
-        {form}
-              <h2> {weather.city} </h2>
-              <ul className="Header">
-                <li><FormattedDate date= {weather.date}/></li>
-                <li className= "text-capitalize">{weather.description}</li>
-              </ul>
-              <div className="row mt-3">
-  
-              <div className="col-6">
-              <div className="clearfix">
-    
-              <img
-                src={weather.icon}
-                alt={weather.description}
-                className="weather-icon float-left"
-              />
-  
-              <div className="float-left">
-                <span className="temperature">
-                  <p className="temp"> {Math.round(weather.temperature)}</p>
-                </span>
-                <span className="units">
-                  <a
-                    href="https://www.google.com/search?q=what+is+celsius&rlz=1C5CHFA_enUS925US925&oq=what+is+celsius&aqs=chrome..69i57j0l5j0i395l4.2485j1j7&sourceid=chrome&ie=UTF-8"
-                    class="active"
-                  >
-                    ºC
-                  </a>
-                  |
-                  <a href="https://www.google.com/search?rlz=1C5CHFA_enUS925US925&sxsrf=ALeKk00kKnxxG69VpivFhAoCK25Zj3Sofw%3A1610790805093&ei=lbcCYLKeBczlkwXghq1Q&q=what+is+fahrenheit+based+on&oq=what+is+fa&gs_lcp=CgZwc3ktYWIQAxgAMgcIABDJAxBDMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAOgQIABBHOgQIIxAnOgQILhBDOgQIABBDUK6VAVj1pQFg0cMBaABwBHgAgAFWiAGpBZIBAjEwmAEAoAEBqgEHZ3dzLXdpesgBCMABAQ&sclient=psy-ab">
-                    ºF
-                  </a>
-                </span>
-                </div>
-              </div>
-              </div>
-              <div className= "col-6">
-              <ul className="float-right">
-            <li>
-              {" "}
-               Humidity: {weather.humidity} %
-            </li>
-            <li>
-              Wind: {Math.round(weather.wind)} km/h
-            </li>
-          </ul>
-          </div>
-          </div>
-           
-          </div>
-       
+      <div className="WeatherApp">
+      {form}
+      <WeatherInfo data = {weather}/>
       </div>
     );
+   
   } else {
-    const apiKey = "0e6a69651885d99335f23f200403f8a4";
-    const unit = "metric";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=${unit}`;
-    axios.get(apiUrl).then(showWeather);
-    console.log(apiUrl);
-    return form;
+   search();
+    return "Loading...";
   }
 }
 
