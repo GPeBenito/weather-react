@@ -5,12 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function WeatherApp(props) {
   const [city, setCity] = useState(null);
-  const [loaded, setLoaded] = useState(false);
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState({ loaded: false});
 
   function showWeather(response) {
-    setLoaded(true);
+   
     setWeather({
+      loaded:true,
+      city:response.data.name,
+      date: "Saturday 12:30", 
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -21,11 +23,7 @@ export default function WeatherApp(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const apiKey = "0e6a69651885d99335f23f200403f8a4";
-    const unit = "metric";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-    axios.get(apiUrl).then(showWeather);
-    console.log(apiUrl);
+   
   }
 
   function updateCity(event) {
@@ -63,30 +61,30 @@ export default function WeatherApp(props) {
     </form>
     </div> 
   );
-  if (loaded) {
+  if (weather.loaded) {
     return (
       <div className="Weather">
         <div>
         {form}
-              <h2> New York </h2>
+              <h2> {weather.city} </h2>
               <ul className="Header">
-                <li>Last updated: TUESDAY 10:00AM </li>
-                <li>Partly Cloudy</li>
+                <li>Last updated: {weather.date}</li>
+                <li className= "text-capitalize">{weather.description}</li>
               </ul>
-              <div className="row">
+              <div className="row mt-3">
   
               <div className="col-6">
               <div className="clearfix">
     
               <img
-                src="https://i.pinimg.com/564x/77/0b/80/770b805d5c99c7931366c2e84e88f251.jpg"
-                alt="partly cloudy"
+                src={weather.icon}
+                alt={weather.description}
                 className="weather-icon float-left"
               />
   
               <div className="float-left">
                 <span className="temperature">
-                  <p className="temp"> 19 </p>
+                  <p className="temp"> {Math.round(weather.temperature)}</p>
                 </span>
                 <span className="units">
                   <a
@@ -107,10 +105,10 @@ export default function WeatherApp(props) {
               <ul className="float-right">
             <li>
               {" "}
-               Humidity: 10 %
+               Humidity: {weather.humidity} %
             </li>
             <li>
-              Wind: 5 km/h
+              Wind: {Math.round(weather.wind)} km/h
             </li>
           </ul>
           </div>
@@ -118,22 +116,14 @@ export default function WeatherApp(props) {
            
           </div>
        
-      
-      
-     
-    
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}ºC </li>
-          <li className= "text-capitalize"> Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li> Wind: {weather.wind}km/h</li>
-          <li>
-            <img src={weather.icon} alt={weather.description} />
-          </li>
-        </ul>
       </div>
     );
   } else {
+    const apiKey = "0e6a69651885d99335f23f200403f8a4";
+    const unit = "metric";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(showWeather);
+    console.log(apiUrl);
     return form;
   }
 }
