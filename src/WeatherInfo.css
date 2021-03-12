@@ -23,12 +23,12 @@ p {
 Weather .float-left {
   float: left !important;
 }
-.Weather .weather-icon{
-  height: 85px;
+.Weather canvas{
   display:inline-block;
   border-style: none;
-  margin-left: -20px;
-  margin-top: -15px;
+  margin-left: -15px;
+  margin-right: 5px;
+  margin-top: 0px;
   
 
 }
