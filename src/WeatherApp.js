@@ -3,6 +3,7 @@ import axios from "axios";
 import "./WeatherApp.css";
 
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function WeatherApp(props) {
@@ -75,6 +76,7 @@ function search(){
       <div className="WeatherApp">
       {form}
       <WeatherInfo data = {weather}/>
+      <WeatherForecast city= {weather.city}/>
       </div>
     );
    
