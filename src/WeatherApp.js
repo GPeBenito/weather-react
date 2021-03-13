@@ -62,11 +62,7 @@ function search(){
       class="form-control btn btn-primary shadow-sm"
       id="special-button" />
       </div>
-      <div class="col-3">
-          <button class="btn btn-success w-100" id="current-location-button">
-              Current
-          </button>
-      </div>
+    
       </div>
     </form>
     </div> 
